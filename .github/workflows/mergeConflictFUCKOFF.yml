@@ -26,3 +26,9 @@ jobs:
 
       - name: Run Gulp tasks (Minify & Test)
         run: npx gulp
+
+      - name: Save dist folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist/
