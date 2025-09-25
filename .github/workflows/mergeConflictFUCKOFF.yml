@@ -27,8 +27,10 @@ jobs:
       - name: Run Gulp tasks (Minify & Test)
         run: npx gulp
 
-      - name: Save dist folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Build artifacts [skip ci]"
+          git push
