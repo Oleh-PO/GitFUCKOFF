@@ -28,7 +28,7 @@ jobs:
         run: npx gulp
 
       - name: Save dist folder
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist/
